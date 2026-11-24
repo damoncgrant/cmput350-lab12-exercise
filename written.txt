@@ -1,5 +1,9 @@
 ﻿Q3. What happens to the bounding boxes with update + fullRefit?
+Circles that start next in the same subtree to each other move in a random direction and their box will stretch to cover the both subtrees. I see that as the program runs it begins to slow down as the boxes span much larger areas and lots of overlap happens. 
 
 Q4. What happens with reset (rebuild every frame) instead?
+The program does not lag as much and the boxes do not grow to very large sizes. This is because we are constantly putting different objects into new leaf nodes rather than expanding the nodes to include them both. Circles near each other are grouped together in the same node.
 
 Q5. Why are some circles drawn with their sides cut off?
+
+In the version of the lab that was given, the circles to not have their sides cut off; however, if we do the reset before the update, we can see that some of the sides are cut off. This happens because the circles are moving out of their bounding box areas after the update and then being drawn. If we draw their box after they move then they will appear to not be cut off. 
